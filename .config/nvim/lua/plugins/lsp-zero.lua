@@ -15,28 +15,26 @@ return {
 				-- see :help lsp-zero-keybindings
 				-- to learn the available actions
 				lsp.default_keymaps({buffer = bufnr})
-                vim.api.nvim_create_autocmd("CursorHold", {
-                    buffer = bufnr,
-                    callback = function()
-                        local opts = {
-                            focusable = false,
-                            close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
-                            border = 'rounded',
-                            source = 'always',
-                            prefix = ' ',
-                            scope = 'cursor',
-                        }
-                        vim.diagnostic.open_float(nil, opts)
-                    end
-                })
-			end)
+                -- vim.api.nvim_create_autocmd("CursorHold", {
+                --     buffer = bufnr,
+                --     callback = function()
+                --         local opts = {
+                --             focusable = false,
+                --             close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+                --             border = 'rounded',
+                --             source = 'always',
+                --             prefix = ' ',
+                --             scope = 'cursor',
+                --         }
+                --         vim.diagnostic.open_float(nil, opts)
+                --     end
+                -- })
+                vim.keymap.set('n', '<leader>d', function() vim.diagnostic.open_float(0, {scope="line"}) end)
+	 		end)
 
 			require("mason").setup({})
 			require("mason-lspconfig").setup({
 				--ensure_installed = { "rust_analyzer", "pyright", "tailwindcss", "svelte", "dockerls", "cssls", "tsserver" },
-				require("lspconfig").tsserver.setup({ 
-					filetypes = { "typescript", "javascript", "svelte" }
-				}),
 				require("lspconfig").rust_analyzer.setup({}),
 				require("lspconfig").pyright.setup({}),
 				require("lspconfig").tailwindcss.setup({}),
@@ -56,7 +54,7 @@ return {
                         --- @type string[]
                         extensionsPath = {},
                         --- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/preferences/)
-                        preferences = {},
+                preferences = {},
                         --- @type boolean Defaults to `true`
                         showAbbreviationSuggestions = true,
                         --- @type "always" | "never" Defaults to `"always"`
@@ -68,9 +66,8 @@ return {
                         --- @type table<string, string> [Emmet Docs](https://docs.emmet.io/customization/snippets/#variables)
                         variables = {},
                     },
-                })
-			})
-
+                }),
+            })
             local cmp = require("cmp")
             cmp.setup({
                 sources = {
