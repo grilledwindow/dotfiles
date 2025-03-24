@@ -22,8 +22,8 @@ Mod=Mod1    # Use alt as the main modifier
 hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
-hc keybind $Mod-Shift-Return spawn "${TERMINAL:-xterm}" # use your $TERMINAL with xterm as fallback
-hc keybind $Mod-Return chain , split bottom 0.5 , focus d , spawn "${TERMINAL:-xterm}" # use your $TERMINAL with xterm as fallback
+hc keybind $Mod-Return spawn "${TERMINAL:-xterm}" # use your $TERMINAL with xterm as fallback
+hc keybind $Mod-Shift-Return chain , split bottom 0.5 , focus d , spawn "${TERMINAL:-xterm}" # use your $TERMINAL with xterm as fallback
 
 # screenshot
 hc keybind Print spawn flameshot gui --clipboard --path ~/screenshots/
