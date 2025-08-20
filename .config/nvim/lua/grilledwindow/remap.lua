@@ -2,6 +2,11 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>p", "<CMD>Oil<CR>")
 vim.keymap.set("n", "-", "<CMD>Oil<CR>")
 
+vim.keymap.set("n", '""', '"+')
+vim.keymap.set("x", '""', '"+')
+vim.keymap.set("n", '<leader>c', '"+y')
+vim.keymap.set("n", '<leader>v', '"+gP')
+
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '>-2<CR>gv=gv")
 

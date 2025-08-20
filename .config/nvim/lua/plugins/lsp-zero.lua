@@ -27,7 +27,7 @@ return {
                     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
                 end, opts)
                 vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
-                vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
+                vim.keymap.set('n', '<space>r', vim.lsp.buf.rename, opts)
                 vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
                 -- vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
                 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
@@ -59,9 +59,9 @@ return {
 				require("lspconfig").svelte.setup({}),
 				require("lspconfig").dockerls.setup({}),
 				require("lspconfig").cssls.setup({}),
-				require("lspconfig").html.setup({}),
+				-- require("lspconfig").html.setup({}),
                 require("lspconfig").emmet_language_server.setup({
-                    filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "pug", "typescriptreact" },
+                    filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "pug", "typescriptreact", "heex" },
                     -- Read more about this options in the [vscode docs](https://code.visualstudio.com/docs/editor/emmet#_emmet-configuration).
                     -- **Note:** only the options listed in the table are supported.
                     init_options = {
