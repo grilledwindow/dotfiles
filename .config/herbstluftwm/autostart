@@ -9,6 +9,12 @@ hc() {
 hc emit_hook reload
 
 bg='#292F40'
+bg='#2d353b'
+
+# theme colours
+bg=$bg
+normal='#4f585e'
+active='#baad9c'
 xsetroot -solid $bg
 
 # remove all existing keybindings
@@ -115,11 +121,6 @@ hc keybind $Mod-Tab         cycle_all +1
 hc keybind $Mod-Shift-Tab   cycle_all -1
 hc keybind $Mod-c cycle
 hc keybind $Mod-i jumpto urgent
-
-# theme colours
-bg=$bg
-normal='#636985'
-active='#D1A69F'
 
 # theme
 hc attr theme.tiling.reset 1
