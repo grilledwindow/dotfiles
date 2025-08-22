@@ -16,6 +16,9 @@
 ;
 ;==========================================================
 
+[_]
+padding = 2
+
 [colors]
 background = #2d353b
 background-alt = #636985
@@ -24,6 +27,32 @@ primary = #baad9c
 secondary = #8ABEB7
 alert = #6E91B9
 disabled = #606870
+bg-vol = #343f44
+fg-vol = #859289
+
+bg-mem = #4d4c43
+fg-mem = ${colors.primary}
+bg-cpu = #44423b
+fg-cpu = ${colors.primary}
+
+# format-connected-background = #57564F
+# format-disconnected-background = #57564F
+bg-wifi = #3d3b3a
+fg-wifi-yes = #8f858a
+fg-wifi-no = #8f858a
+
+# format-discharging-foreground = #dbbc7f
+# format-discharging-background = #44423b
+# format-discharging-foreground = #96b0a3
+# format-discharging-background = #444f52
+# label-background = #565c4e
+bg-batt = #4f5448
+fg-batt = #a8a077
+
+bg-date = #444f52
+fg-date = #96b0a3
+# label-foreground = #97a891
+# label-background = #454d43
 
 [bar/bar]
 width = 100%
@@ -41,19 +70,19 @@ line-size = 2pt
 border-size = 0pt
 border-color = ${colors.background}
 
-padding-left = 0
-
-module-margin = 1
+padding = 4px
 
 separator = 
 separator-foreground = ${colors.disabled}
 
 font-0 = Iosevka:size=12;3
-# font-1 = Iosevka Nerd Font:style=Medium:size=16;3
-font-1 = Iosevka Nerd Font:style=Regular:size=14;3
+font-1 = Iosevka Nerd Font:antialias-false:size=14;3
+font-2 = Iosevka Nerd Font:antialias=false:size=23;5
+font-3 = Noto Sans CJK SC:style=Reguler:size=12;3
+font-4 = Georgia:style=Regular:size=12;3
 
 modules-left = xworkspaces xwindow
-modules-right = filesystem pulseaudio xkeyboard memory cpu wlan eth battery date
+modules-right = filesystem pulseaudio xkeyboard memory cpu wlan eth battery date time
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -71,10 +100,11 @@ enable-ipc = true
 [module/xworkspaces]
 type = internal/xworkspaces
 
-; icon-default = 
+; icon-default = 󰄯
 ;icon-default = -
+; 󰥱 󰄰 󰄯 󰺕
 
-label-active = "~%name%"
+label-active = ~%name%
 # label-active-background = ${colors.primary}
 label-active-foreground = ${colors.primary}
 label-active-underline = ${colors.primary}
@@ -82,39 +112,51 @@ label-active-underline = ${colors.primary}
 label-active-padding = 1
 
 label-occupied = "'%name%" 
+# label-occupied = %icon%
 label-occupied-padding = 1
 
-label-urgent = "#%name%"
+label-urgent = "%name%!"
+; label-urgent = 󰥱
 label-urgent-foreground = ${colors.secondary}
 label-urgent-padding = 1
 
 label-empty = ".%name%"
+; label-empty = 󰺕
 label-empty-foreground = ${colors.disabled}
 label-empty-padding = 1
 
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:45:...%
+label-padding = ${_.padding}
 
 [module/pulseaudio]
 type = internal/pulseaudio
 
 label-volume = " %percentage%%"
-format-volume = <ramp-volume> <label-volume>
+format-volume = <ramp-volume><label-volume>
+format-volume-padding = ${_.padding}
+label-muted-padding = ${_.padding}
 
-label-muted = 
+format-volume-background = ${colors.bg-vol}
+label-volume-foreground = ${colors.fg-vol}
+ramp-volume-foreground = ${colors.fg-vol}
+ramp-volume-font = 2
+
+label-muted = " "
 label-muted-foreground = ${colors.disabled}
 
-ramp-volume-foreground = ${colors.primary}
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 
+ramp-volume-0 = " "
+ramp-volume-1 = " "
+ramp-volume-2 = " "
 
 [module/xkeyboard]
 type = internal/xkeyboard
 blacklist-0 = num lock
 
-label-layout = %layout%
+label-layout-padding = ${_.padding}
+# label-layout = %layout%
+label-layout =
 label-layout-foreground = ${colors.primary}
 
 label-indicator-padding = 2
@@ -125,17 +167,23 @@ label-indicator-background = ${colors.secondary}
 [module/memory]
 type = internal/memory
 interval = 3
-format-prefix = 
-format-prefix-foreground = ${colors.primary}
-format-prefix-padding-right = 2
+format-prefix = " "
+format-prefix-font = 2
+format-prefix-padding-left = ${_.padding}
+format-prefix-padding-right = 1
+format-background = ${colors.bg-mem}
+format-foreground = ${colors.fg-mem}
 label = %gb_used%
 
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = 
-format-prefix-foreground = ${colors.primary}
-format-prefix-padding-right = 2
+format-prefix = " "
+format-prefix-font = 2
+format-prefix-padding = 1
+label-padding-right = ${_.padding}
+format-background = ${colors.bg-cpu}
+format-foreground = ${colors.fg-cpu}
 label = %percentage%%
 
 [network-base]
@@ -143,17 +191,35 @@ type = internal/network
 interval = 5
 format-connected = <label-connected>
 format-disconnected = <label-disconnected>
-label-disconnected = %{F#D1A69F}%ifname%%{F#707880} disconnected
+format-connected-padding = ${_.padding}
+format-disconnected-padding = ${_.padding}
+label-disconnected = %ifname% 󰞃
+
+format-connected-background = ${colors.bg-wifi}
+format-disconnected-background = ${colors.bg-wifi}
+format-connected-foreground = ${colors.fg-wifi-yes}
+format-disconnected-foreground = ${colors.fg-wifi-no}
 
 [module/wlan]
 inherit = network-base
 interface-type = wireless
-label-connected = %{F#D1A69F}%ifname%%{F-} %essid% %local_ip%
+# label-connected = %{F#D1A69F}%ifname%%{F-} %essid% %local_ip%
+label-connected = %essid%
+
+format-connected = <ramp-signal> <label-connected>
+format-disconnected = "󰤮 "
+
+ramp-signal-font = 2
+ramp-signal-0 = "󰤯 "
+ramp-signal-1 = "󰤟 "
+ramp-signal-2 = "󰤢 "
+ramp-signal-3 = "󰤥 "
+ramp-signal-4 = "󰤨 "
 
 [module/eth]
 inherit = network-base
 interface-type = wired
-label-connected = %{F#D1A69F}%ifname%%{F-} %local_ip%
+label-connected = 󰯸 %local_ip%
 
 [module/battery]
 type = internal/battery
@@ -165,7 +231,7 @@ full-at = 99
 ; format-low once this charge percentage is reached
 ; Default: 10
 ; New in version 3.6.0
-low-at = 5
+low-at = 10
 
 ; Use the following command to list batteries and adapters:
 ; $ ls -1 /sys/class/power_supply/
@@ -183,34 +249,32 @@ adapter = ADP1
 ; Default: 5
 poll-interval = 5
 
+label-charging = %percentage%%
+label-discharging = %percentage%% %consumption%
+format-discharging-background = ${colors.bg-batt}
+format-discharging-foreground = ${colors.fg-batt}
+format-charging =  <ramp-capacity> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-full =  
+
+format-charging-padding = ${_.padding}
+format-discharging-padding = ${_.padding}
+
+ramp-capacity-0 = 󰁺
+ramp-capacity-1 = 󰁼
+ramp-capacity-2 = 󰁾
+ramp-capacity-3 = 󰂀
+ramp-capacity-4 = 󰂂
+ramp-capacity-5 = 󰁹
+
 [module/date]
 type = internal/date
-
-# 1hour
 interval = 360
-
-# date = %H:%M
-date = %d %b %y, %a
-
-label = %date%
-label-foreground = ${colors.primary}
-# label-background = ${colors.foreground}
-label-background = #343f44
-label-padding = 1
-
-[module/time]
-type = internal/date
-
-# 1hour
-interval = 60
-
-# date = %H:%M
-date = %H:%M
-label = %date%
-label-foreground = ${colors.primary}
-# label-background = ${colors.foreground}
-label-background = #343f44
-label-padding = 1
+date = %d %b %y  %H:%M
+label = "%date%"
+label-padding = ${_.padding}
+label-foreground = ${colors.fg-date}
+label-background = ${colors.bg-date}
 
 [settings]
 screenchange-reload = true
