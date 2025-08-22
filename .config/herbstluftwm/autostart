@@ -133,13 +133,13 @@ hc set frame_bg_active_color $active
 
 hc attr theme.title_height 0
 hc attr theme.title_when always
-hc attr theme.title_font 'Fira Code:pixelsize=14'  # example using Xft
+hc attr theme.title_font 'Iosevka Nerd Font:pixelsize=14'  # example using Xft
 # hc attr theme.title_font '-*-fixed-medium-r-*-*-13-*-*-*-*-*-*-*'
 
 hc attr theme.title_depth 3  # space below the title's baseline
 hc attr theme.inner_width 0
 hc attr theme.inner_color $normal
-hc attr theme.border_width 4
+hc attr theme.border_width 3
 hc attr theme.title_color $bg
 
 hc attr theme.active.color $active 
@@ -154,7 +154,8 @@ hc attr theme.normal.title_color '#f5f5f5'
 
 hc attr theme.urgent.color '#6E91B9'
 hc attr theme.floating.title_height 18
-hc attr theme.floating.border_width 4
+hc attr theme.floating.title_font 'Iosevka Nerd Font:pixelsize=14'  # example using Xft
+hc attr theme.floating.border_width 3
 hc attr theme.urgent.inner_color '#'
 
 # copy inner color to outer_color
@@ -163,17 +164,16 @@ for state in active urgent normal ; do
         attr theme.${state}.outer_color C
 done
 hc attr theme.tiling.outer_width 0
-hc attr theme.background_color '#000000'
 
 hc set window_gap 0
 hc set frame_padding 0
 hc set smart_window_surroundings false
 hc set smart_frame_surroundings off
 hc set mouse_recenter_gap 0
-hc set show_frame_decorations 'if_empty'
+hc set show_frame_decorations 'all'
 hc set frame_bg_transparent true
 hc set frame_transparent_width 4
-hc set frame_gap 4
+hc set frame_gap 3
 
 # rules
 hc unrule -F
