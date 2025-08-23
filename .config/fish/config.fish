@@ -4,3 +4,4 @@ if status is-interactive
     fish_clipboard_copy
     fish_clipboard_paste
 end
+~/.local/bin/mise activate fish | source
