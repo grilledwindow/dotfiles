@@ -28,7 +28,7 @@ secondary = #8ABEB7
 alert = #6E91B9
 disabled = #606870
 
-bg-vol = #343f44
+bg-vol = #343c43
 fg-vol = #777d79
 
 bg-cpu = #404747
@@ -81,46 +81,36 @@ cursor-scroll = ns-resize
 
 enable-ipc = true
 
-; tray-position = right
-
-; wm-restack = generic
-; wm-restack = bspwm
-; wm-restack = i3
-
-; override-redirect = true
-
 [module/xworkspaces]
 type = internal/xworkspaces
 
-; icon-default = 󰄯
-;icon-default = -
-; 󰥱 󰄰 󰄯 󰺕
+label-active = %name%
+label-active-background = #4d5551
+label-active-foreground = #aab38e
+label-active-padding = 12px
 
-label-active = ~%name%
-# label-active-background = ${colors.primary}
-label-active-foreground = ${colors.primary}
-label-active-underline = ${colors.primary}
-# label-active-margin = 0.5
-label-active-padding = 1
-
-label-occupied = "'%name%" 
+label-occupied = "%name%" 
+label-occupied-background = #373d45
+label-occupied-foreground = #878d95
 # label-occupied = %icon%
-label-occupied-padding = 1
+label-occupied-padding = 12px
 
-label-urgent = "%name%!"
+label-urgent = "%name%"
 ; label-urgent = 󰥱
-label-urgent-foreground = ${colors.secondary}
-label-urgent-padding = 1
+label-urgent-background = ${colors.bg-wifi}
+label-urgent-foreground = ${colors.primary}
+label-urgent-padding = 12px
 
-label-empty = ".%name%"
+label-empty = "%name%"
 ; label-empty = 󰺕
 label-empty-foreground = ${colors.disabled}
-label-empty-padding = 1
+label-empty-padding = 12px
 
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:45:...%
 label-padding = ${_.padding}
+label-foreground = ${colors.fg-vol}
 
 [module/pulseaudio]
 type = internal/pulseaudio
