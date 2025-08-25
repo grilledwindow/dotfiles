@@ -194,6 +194,7 @@ label-connected = %essid%
 
 format-connected = <ramp-signal> <label-connected>
 format-disconnected = "󰤮 "
+format-disconnected-font = 2
 
 ramp-signal-font = 2
 ramp-signal-0 = "󰤯 "
