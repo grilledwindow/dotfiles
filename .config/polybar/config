@@ -258,7 +258,7 @@ ramp-capacity-5 = 󰁹
 
 [module/date]
 type = internal/date
-interval = 360
+interval = 60
 date = %d %b %y  %H:%M
 label = "%date%"
 label-padding = ${_.padding}
