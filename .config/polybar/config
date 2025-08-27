@@ -236,18 +236,22 @@ adapter = ADP1
 ; Default: 5
 poll-interval = 5
 
-label-charging = %percentage%% %consumption%
-label-discharging = %percentage%% %consumption%
 format-discharging-background = ${colors.bg-batt}
 format-discharging-foreground = ${colors.fg-batt}
 format-charging-background = ${colors.bg-batt}
 format-charging-foreground = ${colors.fg-batt}
+format-full-background = ${colors.bg-batt}
+format-full-foreground = ${colors.fg-batt}
+
+label-charging = %percentage%% %consumption%
+label-discharging = %percentage%% %consumption%
 format-charging = <ramp-capacity> 󱐋 <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
 format-full = 󰁹 100%
 
 format-charging-padding = ${_.padding}
 format-discharging-padding = ${_.padding}
+format-full-padding = ${_.padding}
 
 ramp-capacity-0 = 󰁺
 ramp-capacity-1 = 󰁼
