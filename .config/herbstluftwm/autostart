@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+~/.local/bin/herbex &
 ~/.config/polybar/launch.sh &
 # this is a simple config for herbstluftwm
 
@@ -28,10 +29,12 @@ Mod=Mod1    # Use alt as the main modifier
 
 hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
-hc keybind $Mod-Shift-c close
+# hc keybind $Mod-Shift-c close
 hc keybind $Mod-Return spawn "${TERMINAL:-xterm}" # use your $TERMINAL with xterm as fallback
 hc keybind $Mod-Shift-Return chain , split bottom 0.5 , focus d , spawn "${TERMINAL:-xterm}" # use your $TERMINAL with xterm as fallback
-
+hc keybind $Mod-c spawn ~/.config/herbstluftwm/cwd_xterm.sh &
+hc keybind $Mod-Shift-c chain , split bottom 0.5 , focus d , spawn ~/.config/herbstluftwm/cwd_xterm.sh &
+hc keybind $Mod-g chain , split bottom 0.5 , focus d , set_attr clients.focus.floating toggle , spawn ~/.config/herbstluftwm/cwd_xterm.sh &
 # screenshot
 hc keybind Print spawn flameshot gui --clipboard --path ~/screenshots/
 hc keybind $Mod-Shift-p spawn flameshot full --clipboard --path ~/screenshots/
@@ -120,7 +123,7 @@ hc mousebind $Mod-Button3 resize
 hc keybind $Mod-BackSpace   cycle_monitor
 hc keybind $Mod-Tab         cycle_all +1
 hc keybind $Mod-Shift-Tab   cycle_all -1
-hc keybind $Mod-c cycle
+# hc keybind $Mod-c cycle
 hc keybind $Mod-i jumpto urgent
 
 # theme
