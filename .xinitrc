@@ -1,6 +1,6 @@
 #!/bin/sh
 
-theme=$HOME/.config/xterm-themes/nord
+theme=$HOME/.config/xterm-themes/everforest
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
