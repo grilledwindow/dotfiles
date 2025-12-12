@@ -38,6 +38,9 @@ hc keybind $Mod-g chain , split bottom 0.5 , focus d , set_attr clients.focus.fl
 # screenshot
 hc keybind Print spawn flameshot gui --clipboard --path ~/screenshots/
 hc keybind $Mod-Shift-p spawn flameshot full --clipboard --path ~/screenshots/
+# rotate screen
+hc keybind $Mod-Control-9 chain . set_monitors '1200x1920+0+0' . spawn xrandr --output eDP --rotate left
+hc keybind $Mod-Control-0 chain . set_monitors '1920x1200+0+0' . spawn xrandr --output eDP --rotate normal
 
 # basic movement in tiling and floating mode
 # focusing clients
