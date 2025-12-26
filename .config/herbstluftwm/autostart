@@ -37,10 +37,11 @@ hc keybind $Mod-Shift-c chain , split bottom 0.5 , focus d , spawn ~/.config/her
 hc keybind $Mod-g chain , split bottom 0.5 , focus d , set_attr clients.focus.floating toggle , spawn ~/.config/herbstluftwm/cwd_xterm.sh &
 # screenshot
 hc keybind Print spawn flameshot gui --clipboard --path ~/screenshots/
+hc keybind $Mod-p spawn flameshot gui --clipboard --path ~/screenshots/
 hc keybind $Mod-Shift-p spawn flameshot full --clipboard --path ~/screenshots/
 # rotate screen
-hc keybind $Mod-Control-9 chain . set_monitors '1200x1920+0+0' . spawn xrandr --output eDP --rotate left
-hc keybind $Mod-Control-0 chain . set_monitors '1920x1200+0+0' . spawn xrandr --output eDP --rotate normal
+hc keybind $Mod-Control-9 chain . set_monitors '1200x1920+0+0' . spawn xrandr --output eDP --primary --rotate left
+hc keybind $Mod-Control-0 chain . set_monitors '1920x1200+0+0' . spawn xrandr --output eDP --primary --rotate normal . detect_monitors
 
 # basic movement in tiling and floating mode
 # focusing clients
@@ -107,7 +108,6 @@ hc keybind $Mod-Shift-f set_attr clients.focus.floating toggle
 hc keybind $Mod-Shift-d set_attr clients.focus.decorated toggle
 hc keybind $Mod-Shift-m chain , set_attr clients.focus.minimized true , remove
 hc keybind $Mod-Control-m chain , split bottom 0.5 , focus d , jumpto last-minimized
-hc keybind $Mod-p pseudotile toggle
 # The following cycles through the available layouts within a frame, but skips
 # layouts, if the layout change wouldn't affect the actual window positions.
 # I.e. if there are two windows within a frame, the grid layout is skipped.
@@ -123,7 +123,7 @@ hc mousebind $Mod-Button2 zoom
 hc mousebind $Mod-Button3 resize
 
 # focus
-hc keybind $Mod-BackSpace   cycle_monitor
+hc keybind $Mod-BackSpace chain . cycle_monitor . spawn ~/.config/herbstluftwm/switch_primary_display.sh &
 hc keybind $Mod-Tab         cycle_all +1
 hc keybind $Mod-Shift-Tab   cycle_all -1
 # hc keybind $Mod-c cycle
@@ -179,7 +179,7 @@ hc set smart_frame_surroundings off
 hc set mouse_recenter_gap 0
 hc set show_frame_decorations 'all'
 hc set frame_bg_transparent true
-hc set frame_transparent_width 4
+hc set frame_transparent_width 3
 hc set frame_gap 3
 
 # rules
@@ -204,6 +204,7 @@ hc unlock
 # hc set_monitors 1280x1024+0+0 1280x1024+1280+0
 # or simply:
 # hc detect_monitors
+hc keybind $Mod-Control-1 spawn ~/.screenlayout/monitor1.sh
 
 # find the panel
 panel=~/.config/herbstluftwm/panel.sh
