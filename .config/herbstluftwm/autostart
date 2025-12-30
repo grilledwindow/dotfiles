@@ -39,9 +39,6 @@ hc keybind $Mod-g chain , split bottom 0.5 , focus d , set_attr clients.focus.fl
 hc keybind Print spawn flameshot gui --clipboard --path ~/screenshots/
 hc keybind $Mod-p spawn flameshot gui --clipboard --path ~/screenshots/
 hc keybind $Mod-Shift-p spawn flameshot full --clipboard --path ~/screenshots/
-# rotate screen
-hc keybind $Mod-Control-9 chain . set_monitors '1200x1920+0+0' . spawn xrandr --output eDP --primary --rotate left
-hc keybind $Mod-Control-0 chain . set_monitors '1920x1200+0+0' . spawn xrandr --output eDP --primary --rotate normal . detect_monitors
 
 # basic movement in tiling and floating mode
 # focusing clients
@@ -204,7 +201,11 @@ hc unlock
 # hc set_monitors 1280x1024+0+0 1280x1024+1280+0
 # or simply:
 # hc detect_monitors
+hc set auto_detect_monitors 1
 hc keybind $Mod-Control-1 spawn ~/.screenlayout/monitor1.sh
+# rotate screen
+hc keybind $Mod-Control-9 chain . set_monitors '1200x1920+0+0' . spawn xrandr --output eDP --primary --rotate left
+hc keybind $Mod-Control-0 spawn ~/.screenlayout/laptop_only.sh
 
 # find the panel
 panel=~/.config/herbstluftwm/panel.sh
