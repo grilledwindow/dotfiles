@@ -18,19 +18,3 @@
 "brightnessctl set 4%-"
     XF86MonBrightnessDown
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-brightnessctl set 1000+
-# Increase brightness
-"brightnessctl 

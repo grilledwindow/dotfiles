@@ -1,6 +1,8 @@
 [tools]
 elixir = "latest"
-erlang = "27"
+erlang = "28"
+java = "21"
+kotlin = "latest"
 node = "latest"
 
 [settings]

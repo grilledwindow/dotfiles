@@ -20,6 +20,16 @@ return {
 	      function() require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root }) end,
 	      desc = "Find Plugin File",
 	    },
+	    {
+	      "<leader>fs",
+	      function() require("telescope.builtin").grep_string() end,
+	      desc = "Find in all files",
+	    },
+	    {
+	      "<leader>gg",
+	      function() require("telescope.builtin").live_grep() end,
+	      desc = "Find in all files (live)",
+	    },
 	    { "<C-p>", "<cmd>Telescope git_files<cr>", desc = "Git Files" },
 	    { "<C-h>", "which_key" },
     }
