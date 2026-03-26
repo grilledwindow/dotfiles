@@ -13,7 +13,7 @@ return {
     keys = {
 	    { "<leader>/", false},
 	    -- change a keymap
-	    { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
+	    { "<leader>ft", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
 	    -- add a keymap to browse plugin files
 	    {
 	      "<leader>fp",

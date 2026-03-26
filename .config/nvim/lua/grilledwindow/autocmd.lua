@@ -10,6 +10,14 @@ autocmd('BufRead', {
 })
 
 vim.cmd [[
+:augroup scssindent
+:  autocmd FileType scss setlocal expandtab
+:  autocmd FileType scss setlocal tabstop=4
+:  autocmd FileType scss setlocal shiftwidth=4
+:augroup END
+]]
+
+vim.cmd [[
 :augroup Binary
 :  au!
 :  au BufReadPre  *.dat let &bin=1

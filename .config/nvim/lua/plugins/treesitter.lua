@@ -3,7 +3,7 @@ return {
 	config = function()
 		vim.cmd([[TSUpdate]])
         require("nvim-treesitter.configs").setup({
-            ensure_installed = { "bash", "c", "c_sharp", "cpp", "css", "csv", "dockerfile", "fish", "go", "html", "java", "javascript", "json", "lua", "markdown", "python", "rust", "svelte", "typescript", "vim", "xml", "yaml", "elixir", "erlang" },
+            ensure_installed = { "bash", "c", "c_sharp", "cpp", "css", "csv", "dockerfile", "fish", "go", "html", "java", "javascript", "json", "lua", "markdown", "python", "rust", "svelte", "typescript", "tsx", "vim", "xml", "yaml", "elixir", "erlang" },
 
             -- Install parsers synchronously (only applied to `ensure_installed`)
             sync_install = false,
