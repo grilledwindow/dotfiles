@@ -121,7 +121,7 @@ hc mousebind $Mod-Button2 zoom
 hc mousebind $Mod-Button3 resize
 
 # focus
-hc keybind $Mod-BackSpace chain . cycle_monitor . spawn ~/.config/herbstluftwm/switch_primary_display.sh &
+hc keybind $Mod-BackSpace chain . cycle_monitor +1 
 hc keybind $Mod-Tab         cycle_all +1
 hc keybind $Mod-Shift-Tab   cycle_all -1
 # hc keybind $Mod-c cycle
@@ -203,6 +203,8 @@ hc unlock
 # or simply:
 # hc detect_monitors
 hc set auto_detect_monitors 1
+hc keybind $Mod-Control-a spawn arandr
+hc keybind $Mod-Control-b spawn ~/.screenlayout/edp_bottom.sh
 hc keybind $Mod-Control-1 spawn ~/.screenlayout/monitor1.sh
 hc keybind $Mod-Control-2 spawn ~/.screenlayout/school.sh
 # rotate screen
