@@ -38,7 +38,7 @@ return {
 
 			require("mason").setup({})
 			require("mason-lspconfig").setup({
-				ensure_installed = { "rust_analyzer", "pyright", "tailwindcss", "svelte", "dockerls", "cssls", "vtsls", "cssmodules_ls" },
+				ensure_installed = { "rust_analyzer", "pyright", "tailwindcss", "svelte", "dockerls", "cssls", "vtsls", "cssmodules_ls", "denols" },
                 vim.lsp.config("emmet_language_server", {
                     filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "pug", "typescriptreact", "heex" },
                     -- Read more about this options in the [vscode docs](https://code.visualstudio.com/docs/editor/emmet#_emmet-configuration).
@@ -56,6 +56,7 @@ return {
                     }
                 }),
             })
+            vim.lsp.enable("denols")
             local cmp = require("cmp")
             cmp.setup({
                 sources = {

@@ -27,3 +27,7 @@ vim.opt.foldlevelstart = 5
 vim.opt.foldnestmax = 4
 vim.opt.fillchars.trunc = nil
 
+vim.g.markdown_fenced_languages = {
+  "ts=typescript"
+}
+
