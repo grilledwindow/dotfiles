@@ -43,11 +43,11 @@ vim.cmd [[
 :augroup END
 ]]
 
--- vim.api.nvim_create_autocmd("LspAttach", {
---     callback = function(args)
---         vim.lsp.document_color.enable(false)
---     end,
--- })
+vim.api.nvim_create_autocmd("LspAttach", {
+    callback = function(args)
+        vim.lsp.document_color.enable(false)
+    end,
+})
 
 vim.api.nvim_create_autocmd('FileType', {
     pattern = { '<filetype>' },
