@@ -1,0 +1,57 @@
+gui:
+  theme:
+    lightTheme: false
+
+    # backgrounds (medium)
+    backgroundColor:
+      - "#2d353b"   # bg0
+    inactiveBorderColor:
+      - "#56635f"   # grey (medium)
+    selectedLineBgColor:
+      - "#343f44"   # bg1
+    inactiveViewSelectedLineBgColor:
+      - "#343f44"
+
+    # borders / accents
+    activeBorderColor:
+      - "#a7c080"   # green
+    optionsTextColor:
+      - "#a7c080"
+    searchingActiveBorderColor:
+      - "#e69875"   # orange
+
+    # text
+    defaultFgColor:
+      - "#d3c6aa"   # fg
+    selectedRangeFgColor:
+      - "#2d353b"   # bg0
+    selectedRangeBgColor:
+      - "#a7c080"   # green
+
+    # git status colors
+    unstagedChangesColor:
+      - "#e67e80"   # red
+    stagedChangesColor:
+      - "#a7c080"   # green
+    untrackedChangesColor:
+      - "#7fbbb3"   # aqua
+    conflictedChangesColor:
+      - "#e69875"   # orange
+
+    # commit / branch labels
+    cherryPickedCommitBgColor:
+      - "#343f44"
+    cherryPickedCommitFgColor:
+      - "#a7c080"
+    markedBaseCommitBgColor:
+      - "#343f44"
+    markedBaseCommitFgColor:
+      - "#7fbbb3"
+
+    # messages
+    warningColor:
+      - "#e69875"
+    errorColor:
+      - "#e67e80"
+    infoColor:
+      - "#7fbbb3"

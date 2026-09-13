@@ -1,6 +1,14 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export DBUS_SESSION_BUS_ADDRESS:unix\x3apath\x3d/run/dbus/
+SETUVAR --export GDK_DEBUG:portals
+SETUVAR --export GTK_USE_PORTAL:1
+SETUVAR --export QT_QPA_PLATFORMTHEME:xdgdesktopportal
+SETUVAR --export XDG_CONFIG_HOME:/home/xa/\x2econfig
 SETUVAR __fish_initialized:4300
+SETUVAR _fisher_jtpevehouse_2F_fish_2D_everforest_files:\x7e/\x2econfig/fish/functions/theme_everforest\x2efish
+SETUVAR _fisher_plugins:jtpevehouse/fish\x2deverforest
+SETUVAR _fisher_upgraded_to_4_4:\x1d
 SETUVAR fish_user_paths:/home/xa/bin\x1e/home/xa/\x2elocal/bin\x1e/bin\x1e/home/xa/\x2ecargo/bin
 SETUVAR lst:ls\x20\x2dl\x20\x7c\x20grep\x20\x22\x24\x28date\x20\x2b\x25b\x5c\x20\x25d\x29\x22
-SETUVAR lstdy:ls\x20\x2dl\x20\x7c\x20grep\x20\x22\x24\x28date\x20\x2b\x25b\x5c\x20\x25d\x29\x22
+SETUVAR --export lstdy:ls\x20\x2dl\x20\x7c\x20grep\x20\x22\x24\x28date\x20\x2b\x25b\x5c\x20\x25d\x29\x22
