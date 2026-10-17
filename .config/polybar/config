@@ -67,14 +67,15 @@ padding = 4px
 separator = 
 separator-foreground = ${colors.disabled}
 
-font-0 = Iosevka:size=12;3
-font-1 = Iosevka Nerd Font:antialias=true:size=14;3
-font-2 = Iosevka Nerd Font:antialias=false:size=23;5
-font-3 = Noto Sans CJK SC:style=Reguler:size=12;3
-font-4 = Georgia:style=Regular:size=12;3
+font-0 = Iosevka:size=12;4
+font-1 = Iosevka Nerd Font Mono:antialias=true:size=28;7
+font-2 = Iosevka Nerd Font Mono:antialias=true:size=22;6
+font-3 = Iosevka Nerd Font Mono:antialias=true:size=16;4
+font-4 = Noto Sans CJK SC:style=Reguler:size=12;3
+font-5 = Georgia:style=Regular:size=12;3
 
 modules-left = xworkspaces xwindow
-modules-right = pulseaudio xkeyboard memory cpu wlan eth battery date
+modules-right = pulseaudio xkeyboard memory cpu wlan eth battery dunst date
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -124,15 +125,15 @@ format-volume-background = ${colors.bg-vol}
 label-volume-foreground = ${colors.fg-vol}
 ramp-volume-foreground = ${colors.fg-vol}
 
-label-muted = " "
+label-muted = 
 label-muted-font = 2
 label-muted-background = ${colors.bg-vol}
 label-muted-foreground = ${colors.fg-vol}
 
-ramp-volume-font = 2
-ramp-volume-0 = " "
-ramp-volume-1 = " "
-ramp-volume-2 = " "
+; ramp-volume-font = 2
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -152,7 +153,7 @@ label-indicator-background = ${colors.secondary}
 type = internal/memory
 interval = 3
 # format-prefix = " "
-format-prefix = " "
+format-prefix = 
 format-prefix-font = 2
 format-prefix-padding-left = ${_.padding}
 format-prefix-padding-right = 1
@@ -197,11 +198,11 @@ format-disconnected = "󰤮 "
 format-disconnected-font = 2
 
 ramp-signal-font = 2
-ramp-signal-0 = "󰤯 "
-ramp-signal-1 = "󰤟 "
-ramp-signal-2 = "󰤢 "
-ramp-signal-3 = "󰤥 "
-ramp-signal-4 = "󰤨 "
+ramp-signal-0 = 󰤯
+ramp-signal-1 = 󰤟
+ramp-signal-2 = 󰤢
+ramp-signal-3 = 󰤥
+ramp-signal-4 = 󰤨
 
 [module/eth]
 inherit = network-base
@@ -245,27 +246,42 @@ format-full-foreground = ${colors.fg-batt}
 
 label-charging = %percentage%% %consumption%
 label-discharging = %percentage%% %consumption%
-format-charging = <ramp-capacity> 󱐋 <label-charging>
+format-charging = <ramp-capacity> %{T4}󱐋%{T-} <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
-format-full = 󰁹 100%
+format-full = %{T4}󰁹${T-} 100%
 
 format-charging-padding = ${_.padding}
 format-discharging-padding = ${_.padding}
 format-full-padding = ${_.padding}
 
-ramp-capacity-0 = 󰁺
-ramp-capacity-1 = 󰁼
-ramp-capacity-2 = 󰁾
-ramp-capacity-3 = 󰂀
-ramp-capacity-4 = 󰂂
-ramp-capacity-5 = 󰁹
+ramp-capacity-0 = %{T4}󰂎%{T-}
+ramp-capacity-1 = %{T4}󰁺%{T-}
+ramp-capacity-2 = %{T4}󰁻%{T-}
+ramp-capacity-3 = %{T4}󰁼%{T-}
+ramp-capacity-4 = %{T4}󰁽%{T-}
+ramp-capacity-5 = %{T4}󰁾%{T-}
+ramp-capacity-6 = %{T4}󰁿%{T-}
+ramp-capacity-7 = %{T4}󰂀%{T-}
+ramp-capacity-8 = %{T4}󰂁%{T-}
+ramp-capacity-9 = %{T4}󰂂%{T-}
 
 [module/date]
 type = internal/date
 interval = 60
 date = %d %b %y  %H:%M
 label = "%date%"
-label-padding = ${_.padding}
+label-padding-right = 1
+label-foreground = ${colors.fg-date}
+label-background = ${colors.bg-date}
+
+[module/dunst]
+type = custom/ipc
+hook-0 = ~/.config/dunst/get_pause_level_icon.sh
+initial = 1
+
+label = %{T3}%output%%{T-}
+label-padding-left = 2
+label-padding-right = 1
 label-foreground = ${colors.fg-date}
 label-background = ${colors.bg-date}
 
