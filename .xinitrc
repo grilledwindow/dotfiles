@@ -40,6 +40,5 @@ fi
 
 setxkbmap -option cap:escape
 xbindkeys
-$HOME/.config/dunst/map_pause_level.sh
 exec dbus-run-session -- herbstluftwm --locked
 

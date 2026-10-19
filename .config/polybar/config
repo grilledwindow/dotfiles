@@ -194,7 +194,8 @@ interface-type = wireless
 label-connected = %essid%
 
 format-connected = <ramp-signal> <label-connected>
-format-disconnected = "󰤮 "
+format-disconnected = 󰤮
+format-disconnected-padding = 1
 format-disconnected-font = 2
 
 ramp-signal-font = 2
@@ -248,7 +249,7 @@ label-charging = %percentage%% %consumption%
 label-discharging = %percentage%% %consumption%
 format-charging = <ramp-capacity> %{T4}󱐋%{T-} <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
-format-full = %{T4}󰁹${T-} 100%
+format-full = %{T4}󰁹%{T-} 100%
 
 format-charging-padding = ${_.padding}
 format-discharging-padding = ${_.padding}
@@ -277,7 +278,9 @@ label-background = ${colors.bg-date}
 [module/dunst]
 type = custom/ipc
 hook-0 = ~/.config/dunst/get_pause_level_icon.sh
-initial = 1
+; run once on start up, ensures dunst pause level is synced
+hook-1 = ~/.config/dunst/sync_pause_level.sh && ~/.config/dunst/get_pause_level_icon.sh
+initial = 2
 
 label = %{T3}%output%%{T-}
 label-padding-left = 2
