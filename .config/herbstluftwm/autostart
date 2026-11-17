@@ -36,7 +36,7 @@ hc keybind $Mod-c spawn ~/.config/herbstluftwm/cwd_xterm.sh &
 hc keybind $Mod-Shift-c chain , split bottom 0.5 , focus d , spawn ~/.config/herbstluftwm/cwd_xterm.sh &
 hc keybind $Mod-g chain , set_attr clients.focus.floating true , spawn ~/.config/herbstluftwm/cwd_xterm.sh &
 # screenshot
-hc keybind Print spawn flameshot gui--clipboard --path ~/screenshots/
+hc keybind Print spawn flameshot gui --clipboard --path ~/screenshots/
 
 hc keybind $Mod-p spawn flameshot gui --clipboard --path ~/screenshots/
 hc keybind $Mod-Shift-p spawn flameshot full --clipboard --path ~/screenshots/
